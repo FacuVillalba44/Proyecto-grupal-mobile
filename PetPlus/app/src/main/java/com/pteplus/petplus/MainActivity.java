@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,5 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*TableLayout tableRecordatorios = findViewById(R.id.tableRecordatorios);
+
+        for (Recordatorio recordatorio : listaRecordatorios){
+            TableRow row = new TableRow(this);
+        }*/
     }
 }

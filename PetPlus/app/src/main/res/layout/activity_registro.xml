@@ -21,7 +21,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Registrarse"
+        android:text="Registrar Usuario"
         android:textSize="24sp" />
 
     <EditText
@@ -62,41 +62,11 @@
         android:hint="Repita su Contraseña"
         android:inputType="textPassword" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Sexo"
-        android:textSize="18sp" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radioMacho"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Macho" />
-
-        <RadioButton
-            android:id="@+id/radioHembra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hembra" />
-
-    </RadioGroup>
-
     <Button
         android:id="@+id/btnRegistro"
         android:layout_width="wrap_content"
-        android:layout_height="77dp"
+        android:layout_height="58dp"
         android:layout_gravity="center"
-        android:text="Registrar Mascota" />
+        android:text="Crear Usuario" />
 
 </LinearLayout>
