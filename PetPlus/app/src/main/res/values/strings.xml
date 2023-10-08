@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PetPlus</string>
+    <string name="btn_text_AgregarMascota">Agregar Mascota</string>
+    <string name="text_Agregar">+</string>
+    <string name="content_desc_imglogo">imglogo</string>
+    <string name="content_desc_imgatras">imgatras</string>
+
 </resources>
