@@ -13,7 +13,8 @@
         android:layout_marginTop="500dp"
         android:backgroundTint="@color/gris"
         android:fontFamily="@font/inter"
-        android:text="@string/btn_text_AgregarMascota"
+        android:inputType="text"
+        android:hint="@string/btn_text_AgregarMascota"
         android:textColor="#000000"
         android:textSize="20sp"
         app:cornerRadius="0dp"
@@ -40,18 +41,16 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="650dp"
         android:contentDescription="@string/content_desc_imgatras"
-        android:src="@tools:sample/avatars"
+        android:src="@drawable/volver"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/atras" />
+         />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="100dp"
         android:contentDescription="@string/content_desc_imglogo"
         android:src="@drawable/images"
         app:layout_constraintEnd_toEndOf="parent"
