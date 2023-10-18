@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.pteplus.petplus"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.pteplus.petplus"
         minSdk = 27
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
