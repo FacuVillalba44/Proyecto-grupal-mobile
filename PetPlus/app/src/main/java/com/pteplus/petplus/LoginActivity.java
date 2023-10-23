@@ -53,9 +53,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else{
                     Boolean checkDatos = db.checkEmailPassword(email_usuario, password_usuario);
-                    if(checkDatos==true){
+                    if(checkDatos){
                         Toast.makeText(LoginActivity.this, "Inicio exitoso", Toast.LENGTH_SHORT).show();
+
+                        int usuarioId = db.obtenerIdUsuario(email_usuario, password_usuario);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra(BaseDeDatos.COLUMN_ID_USUARIO, usuarioId);
                         startActivity(intent);
                     }
                     else{

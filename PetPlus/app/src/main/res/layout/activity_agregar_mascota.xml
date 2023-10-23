@@ -81,16 +81,17 @@
         app:layout_constraintTop_toBottomOf="@+id/etEspecie" />
 
     <Button
-        android:id="@+id/btnAgregar"
+        android:id="@+id/btnAgregarMascota"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:text="Agregar Mascota"
+        android:text="Crear Mascota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="0dp"
@@ -101,7 +102,7 @@
         android:text="Cancelar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregarMascota" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -116,13 +117,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etRaza">
 
-        <EditText
-            android:id="@+id/etSexo"
+        <TextView
+            android:id="@+id/tvSexo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
             android:text="Sexo"
             android:textSize="20sp" />
 
