@@ -79,7 +79,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         //TABLA USUARIO
-        String create_table_usuario = "CREATE TABLE " + TABLE_USUARIO + "(" +
+        String create_table_usuario = "CREATE TABLE IF NOT EXISTS  " + TABLE_USUARIO + "(" +
                 COLUMN_ID_USUARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NOMBRE + " TEXT NOT NULL, " +
                 COLUMN_APELLIDO + " TEXT NOT NULL, " +
@@ -88,22 +88,22 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         db.execSQL(create_table_usuario);
 
         //TABLA MASCOTA
-        String create_table_mascota = "CREATE TABLE " + TABLE_MASCOTA + "(" +
+        String create_table_mascota = "CREATE TABLE IF NOT EXISTS  " + TABLE_MASCOTA + "(" +
                 COLUMN_ID_MASCOTA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NOMBRE_MASCOTA + " TEXT NOT NULL, " +
                 COLUMN_FECHA_NACIMIENTO + " TEXT NOT NULL, " +
                 COLUMN_ESPECIE + " TEXT NOT NULL, " +
                 COLUMN_RAZA + " TEXT NOT NULL, " +
-                COLUMN_PESO + " TEXT, " + //tengo que eliminar esta columna
+                //COLUMN_PESO + " TEXT, " + //tengo que eliminar esta columna
                 COLUMN_SEXO + " TEXT, " +
-                COLUMN_TAMAÑO + " TEXT, " +   // Hay que eliminar esta columna
+                //COLUMN_TAMAÑO + " TEXT, " +   // Hay que eliminar esta columna
                 COLUMN_ID_USUARIO + " INTEGER, " +
                 "FOREIGN KEY(" + COLUMN_ID_USUARIO + ") REFERENCES " + TABLE_USUARIO + "(" + COLUMN_ID_USUARIO + ")" +
                 ")";
         db.execSQL(create_table_mascota);
 
         //TABLA VETERINARIA
-        String create_table_veterinaria = "CREATE TABLE " + TABLE_VETERINARIA + "(" +
+        String create_table_veterinaria = "CREATE TABLE IF NOT EXISTS  " + TABLE_VETERINARIA + "(" +
                 COLUMN_ID_VETERINARIA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NOMBRE_VETERINARIA + " TEXT NOT NULL, " +
                 COLUMN_VETERINARIO + " TEXT, " +
@@ -116,7 +116,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         db.execSQL(create_table_veterinaria);
 
         //TABLA HISTORIAL CLINICO
-        String create_table_historial_clinico = "CREATE TABLE " + TABLE_HISTORIAL_CLINICO + "(" +
+        String create_table_historial_clinico = "CREATE TABLE IF NOT EXISTS  " + TABLE_HISTORIAL_CLINICO + "(" +
                 COLUMN_ID_HISTORIAL_CLINICO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_FECHA_VISITA + " TEXT NOT NULL, " +
                 COLUMN_PESO + " TEXT, " +
@@ -130,7 +130,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         db.execSQL(create_table_historial_clinico);
 
         //TABLA RECORDATORIO
-        String create_table_recordatorio = "CREATE TABLE " + TABLE_RECORDATORIO + "(" +
+        String create_table_recordatorio = "CREATE TABLE IF NOT EXISTS " + TABLE_RECORDATORIO + "(" +
                 COLUMN_ID_RECORDATORIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_MOTIVO_VISITA + " TEXT NOT NULL, " +
                 COLUMN_FECHA_RECORDATORIO + " TEXT NOT NULL, " +
@@ -148,6 +148,27 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public int obtenerIdUsuario(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int idUsuario = -1; // Valor predeterminado en caso de que no se encuentre el usuario
+
+        String[] columns = {COLUMN_ID_USUARIO};
+        String selection = COLUMN_EMAIL + "=? AND " + COLUMN_PASSWORD + "=?";
+        String[] selectionArgs = {email, password};
+
+        Cursor cursor = db.query(TABLE_USUARIO, columns, selection, selectionArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndexOrThrow(COLUMN_ID_USUARIO);
+            idUsuario = cursor.getInt(columnIndex);
+        }
+
+        cursor.close();
+        db.close();
+        System.out.print(idUsuario);
+        return idUsuario;
     }
 }
 

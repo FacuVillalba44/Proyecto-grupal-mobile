@@ -56,9 +56,12 @@ public class RegistroActivity extends AppCompatActivity {
 
                         if (chekemail== false){
                             long crearUsuario = db.crearUsuario(nombre, apellido, email, password1);
+                            limpiar();
 
                             if( crearUsuario>0){
                                 Toast.makeText(RegistroActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
+                                startActivity(intent);
                             }
                             else {
                                 Toast.makeText(RegistroActivity.this, "Registro fallido", Toast.LENGTH_SHORT).show();
@@ -71,11 +74,16 @@ public class RegistroActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(RegistroActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
-
             }
         });
+    }
+    public void limpiar(){
+        editTextEmail.setText("");
+        editTextNombre.setText("");
+        editTextApellido.setText("");
+        editTextPassword1.setText("");
+        editTextPassword2.setText("");
+
     }
 }

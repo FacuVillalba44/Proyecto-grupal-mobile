@@ -6,29 +6,42 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.widget.DatePicker;
 import android.widget.Toast;
+
+import androidx.fragment.app.DialogFragment;
+
+import java.util.Calendar;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.pteplus.petplus.bd.BaseDeDatos;
 import com.pteplus.petplus.bd.DbMascota;
+import com.pteplus.petplus.bd.DbUsuario;
 
 public class AgregarMascotaActivity extends AppCompatActivity {
-    private Button btnAgregar, btnCancelar;
+    private Button btnAgregarMascota, btnCancelar;
 
-    private EditText etNombreMascota, etFechaNacimiento, etRaza, etEspecie, etSexo;
+    private EditText etNombreMascota, etRaza, etEspecie;
+    private EditText etFechaNacimiento;
 
     private Spinner spinner1;
 
     private String[] opciones = {"Macho", "Hembra"};
 
     DbMascota dbMascota;
+    DbUsuario dbUsuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_mascota);
 
-        btnAgregar = findViewById(R.id.btnAgregar);
+        btnAgregarMascota = findViewById(R.id.btnAgregarMascota);
         btnCancelar = findViewById(R.id.btnCancelar);
         etNombreMascota = findViewById(R.id.etNombreMascota);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
@@ -36,14 +49,26 @@ public class AgregarMascotaActivity extends AppCompatActivity {
         etEspecie = findViewById(R.id.etEspecie);
         spinner1 = findViewById(R.id.spinner1);
 
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,opciones);
 
         spinner1.setAdapter(adapter);
 
         dbMascota = new DbMascota(this);
 
+        dbUsuario = new DbUsuario(this);
 
-        btnAgregar.setOnClickListener(new View.OnClickListener() {
+
+
+        etFechaNacimiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+
+
+        btnAgregarMascota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nombre = etNombreMascota.getText().toString();
@@ -51,17 +76,22 @@ public class AgregarMascotaActivity extends AppCompatActivity {
                 String especie = etEspecie.getText().toString();
                 String raza = etRaza.getText().toString();
                 String sexo = spinner1.getSelectedItem().toString();
+                int idUsuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
 
-                long agregarMascota = dbMascota.agregarMascota(nombre, fecha_nacimiento, especie, raza, sexo);
 
-                /*if(agregarMascota>0){
+
+
+                long agregarMascota = dbMascota.crearMascota(nombre, fecha_nacimiento, especie, raza, sexo, idUsuario);
+
+                if(agregarMascota>0){
                     Toast.makeText(AgregarMascotaActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AgregarMascotaActivity.this, TusMascotasActivity.class);
+                    intent.putExtra(BaseDeDatos.COLUMN_ID_USUARIO, idUsuario);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(AgregarMascotaActivity.this, "Registro Fallido", )
-                }*/
+                    Toast.makeText(AgregarMascotaActivity.this, "Registro Fallido",Toast.LENGTH_SHORT).show();
+                }
 
 
             }
@@ -76,5 +106,33 @@ public class AgregarMascotaActivity extends AppCompatActivity {
         });
     }
 
+    private void showDatePickerDialog() {
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
 
+    public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+            String fecha = dayOfMonth + "-" + (month + 1) + "-" + year;
+            if (getActivity() instanceof AgregarMascotaActivity) {
+                ((AgregarMascotaActivity) getActivity()).setFechaNacimiento(fecha);
+            }
+        }
+    }
+
+    private void setFechaNacimiento(String fecha_seleccionada) {
+        etFechaNacimiento.setText(fecha_seleccionada);
+    }
 }

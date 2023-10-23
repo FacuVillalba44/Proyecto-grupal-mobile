@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.pteplus.petplus"> <!-- Asegúrate de incluir el nombre del paquete correcto -->
 
     <application
         android:allowBackup="true"
@@ -11,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetPlus"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        tools:ignore="DuplicateActivity">
 
-        <!-- Registro login -->
+
+        <!--Login-->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -23,64 +26,60 @@
             </intent-filter>
         </activity>
 
-        <!-- Registro Usuario -->
+        <!--Registro-->
         <activity
             android:name=".RegistroActivity"
             android:exported="true"
             android:parentActivityName=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity"></meta-data>
-
+                android:value=".LoginActivity" />
         </activity>
 
-        <!-- Registro Main (menu principal) -->
+        <!--Menu principal-->
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
+            <!-- Agrega configuraciones específicas para MainActivity si es necesario -->
         </activity>
 
-        <!-- Registro Agregar Mascota -->
+        <!--Agregar Mascota-->
         <activity
             android:name=".AgregarMascotaActivity"
             android:exported="true">
-
+            <!-- Agrega configuraciones específicas para AgregarMascotaActivity si es necesario -->
         </activity>
 
-        <!-- Registro agregar Veterinaria -->
+        <!--Agregar Veterinaria-->
         <activity
             android:name=".AgregarVeterinariaActivity"
             android:exported="true">
-
+            <!-- Agrega configuraciones específicas para AgregarVeterinariaActivity si es necesario -->
         </activity>
 
-        <!-- Registro Tus Veterinarias -->
+        <!--Tus Veterinarias-->
         <activity
             android:name=".TusVeterinariasActivity"
             android:exported="true">
-
+            <!-- Agrega configuraciones específicas para TusVeterinariasActivity si es necesario -->
         </activity>
 
-        <!-- Registro Tus Mascotas -->
+        <!--Tus Mascotas-->
         <activity
             android:name=".TusMascotasActivity"
             android:exported="true">
-
+            <!-- Agrega configuraciones específicas para TusMascotasActivity si es necesario -->
         </activity>
 
-        <!-- Registro Tus Recordatorios -->
+        <!--Tus Recordatorios-->
         <activity
             android:name=".TusRecordatoriosActivity"
             android:exported="true">
-
         </activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-
     </application>
 
 </manifest>

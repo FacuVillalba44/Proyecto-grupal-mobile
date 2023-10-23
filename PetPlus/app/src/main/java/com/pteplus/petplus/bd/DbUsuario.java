@@ -49,9 +49,9 @@ public class DbUsuario extends BaseDeDatos{
         cursor.close();
         db.close();
         return loginExitoso;
-    }
+    }*/
 
-    public int obtenerIdUsuario(String email, String password) {
+    /*public int obtenerIdUsuario(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         int userId = -1; // Valor predeterminado en caso de que no se encuentre el usuario
 

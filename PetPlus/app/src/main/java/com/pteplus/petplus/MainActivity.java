@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.pteplus.petplus.bd.BaseDeDatos;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         Button buttonTusRecordatorios = findViewById(R.id.btn_tus_recordatorios);
         Button buttonAgregarMascota = findViewById(R.id.btn_agregar_mascota);
         Button buttonAgregarVeterinaria = findViewById(R.id.btn_agregar_veterinaria);
+
+        int idUsuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
+
 
 
         buttonTusMascotas.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AgregarMascotaActivity.class);
+                intent.putExtra(BaseDeDatos.COLUMN_ID_USUARIO, idUsuario);
                 startActivity(intent);
             }
         });
