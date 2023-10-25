@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.pteplus.petplus.adaptadores.ListaMascotasAdapter;
@@ -27,22 +28,18 @@ public class TusMascotasActivity extends AppCompatActivity {
         listaMascotas = findViewById(R.id.listaMascotas);
         listaMascotas.setLayoutManager(new LinearLayoutManager(this));
 
-        int idusuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
+        int id_usuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
 
         int dividerColor = getResources().getColor(R.color.colorDivider);
         int dividerHeightInPixels = getResources().getDimensionPixelSize(R.dimen.divider_height);
         DivisorItem divisor = new DivisorItem(dividerColor, dividerHeightInPixels);
         listaMascotas.addItemDecoration(divisor);
 
-        try (DbMascota dbMascota = new DbMascota(TusMascotasActivity.this)) {
-            listaArrayMascotas = dbMascota.mostrarMascotas();
+        DbMascota dbMascota = new DbMascota(TusMascotasActivity.this);
+        listaArrayMascotas = new ArrayList<>();
 
-            ListaMascotasAdapter adapter = new ListaMascotasAdapter(listaArrayMascotas);
-            listaMascotas.setAdapter(adapter);
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
+        ListaMascotasAdapter adapter = new ListaMascotasAdapter(dbMascota.verMascota(id_usuario));
+        listaMascotas.setAdapter(adapter);
 
 
     }

@@ -110,14 +110,14 @@
             android:id="@+id/btnEditarMascota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Crear Mascota"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:text="Editar Mascota" />
 
         <Button
             android:id="@+id/btnEliminarMascota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cancelar" />
+            android:text="Eliminar Mascota" />
 
     </LinearLayout>
 
