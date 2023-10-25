@@ -2,10 +2,8 @@ package com.pteplus.petplus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.widget.DatePicker;
@@ -25,12 +23,9 @@ import com.pteplus.petplus.bd.DbUsuario;
 public class AgregarMascotaActivity extends AppCompatActivity {
     private Button btnAgregarMascota, btnCancelar;
 
-    private EditText etNombreMascota, etRaza, etEspecie;
+    private EditText etNombreMascota, etRaza, etEspecie, etSexo;
     private EditText etFechaNacimiento;
 
-    private Spinner spinner1;
-
-    private String[] opciones = {"Macho", "Hembra"};
 
     DbMascota dbMascota;
     DbUsuario dbUsuario;
@@ -41,18 +36,14 @@ public class AgregarMascotaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_mascota);
 
-        btnAgregarMascota = findViewById(R.id.btnAgregarMascota);
-        btnCancelar = findViewById(R.id.btnCancelar);
+        btnAgregarMascota = findViewById(R.id.btnEditarMascota);
+        btnCancelar = findViewById(R.id.btnEliminarMascota);
         etNombreMascota = findViewById(R.id.etNombreMascota);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
         etRaza = findViewById(R.id.etRaza);
         etEspecie = findViewById(R.id.etEspecie);
-        spinner1 = findViewById(R.id.spinner1);
+        etSexo = findViewById(R.id.etSexo);
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,opciones);
-
-        spinner1.setAdapter(adapter);
 
         dbMascota = new DbMascota(this);
 
@@ -75,11 +66,8 @@ public class AgregarMascotaActivity extends AppCompatActivity {
                 String fecha_nacimiento = etFechaNacimiento.getText().toString();
                 String especie = etEspecie.getText().toString();
                 String raza = etRaza.getText().toString();
-                String sexo = spinner1.getSelectedItem().toString();
+                String sexo = etSexo.getText().toString();
                 int idUsuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
-
-
-
 
                 long agregarMascota = dbMascota.crearMascota(nombre, fecha_nacimiento, especie, raza, sexo, idUsuario);
 

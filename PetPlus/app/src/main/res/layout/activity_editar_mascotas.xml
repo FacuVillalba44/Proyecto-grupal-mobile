@@ -45,6 +45,7 @@
         android:ems="10"
         android:hint="Fecha Nacimiento"
         android:inputType="text"
+        android:clickable="true"
         android:textSize="20sp"
         android:focusableInTouchMode="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,47 +82,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEspecie" />
 
-    <EditText
-        android:id="@+id/etSexo"
+    <Button
+        android:id="@+id/btnGuardarMascota"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:hint="Sexo"
-        android:inputType="text"
-        android:textSize="20sp"
+        android:text="Editar Mascota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRaza" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <!-- Contenedor lineal para los botones -->
-    <LinearLayout
+    <Button
+        android:id="@+id/btnEliminar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="#FF0000"
+        android:text="Eliminar Mascota"
+        android:textColor="#151515"
+        android:textColorHighlight="#F6F6F6"
+        android:textColorLink="#100505"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSexo">
+        app:layout_constraintTop_toBottomOf="@+id/btnGuardarMascota" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRaza">
 
-        <Button
-            android:id="@+id/btnEditarMascota"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvSexo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crear Mascota"
-            android:layout_marginBottom="16dp"/>
+            android:text="Sexo"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btnEliminarMascota"
+        <Spinner
+            android:id="@+id/spinner2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cancelar" />
-
+            android:layout_height="48sp"
+            android:layout_weight="1"
+            android:scrollbarSize="4sp"
+            android:textSize="20sp" />
     </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

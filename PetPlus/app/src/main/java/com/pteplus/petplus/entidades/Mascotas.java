@@ -1,5 +1,7 @@
 package com.pteplus.petplus.entidades;
 
+import java.io.Serializable;
+
 public class Mascotas {
     private int id_mascota;
     private String nombre;

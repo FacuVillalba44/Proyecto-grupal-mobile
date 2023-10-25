@@ -1,5 +1,8 @@
 package com.pteplus.petplus.adaptadores;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pteplus.petplus.EditarMascotasActivity;
 import com.pteplus.petplus.R;
+import com.pteplus.petplus.VerMascotaActivity;
 import com.pteplus.petplus.entidades.Mascotas;
 
 import java.util.ArrayList;
@@ -17,7 +22,7 @@ import java.util.ArrayList;
 public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdapter.ContactoViewHolder> {
     ArrayList<Mascotas> listaMascotas;
 
-    public ListaMascotasAdapter(ArrayList<Mascotas> listaMascotas){
+    public ListaMascotasAdapter(ArrayList<Mascotas> listaMascotas) {
         this.listaMascotas = listaMascotas;
     }
 
@@ -29,7 +34,7 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ContactoViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.nombreMascota.setText(listaMascotas.get(position).getNombre());
         holder.fechaNacimientoMascota.setText(listaMascotas.get(position).getFecha_nacimiento());
         holder.especieMascota.setText(listaMascotas.get(position).getEspecie());
@@ -48,6 +53,7 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
         }
         holder.sexoMascota.setText(textoSexo);
 
+
     }
 
     @Override
@@ -56,7 +62,7 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
         return listaMascotas.size();
     }
 
-    public static class ContactoViewHolder extends RecyclerView.ViewHolder {
+    public class ContactoViewHolder extends RecyclerView.ViewHolder {
         TextView nombreMascota, fechaNacimientoMascota, especieMascota, razaMascota, sexoMascota;
 
         public ContactoViewHolder(@NonNull View itemView) {
@@ -67,6 +73,16 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
             especieMascota = itemView.findViewById(R.id.especieMascota);
             razaMascota = itemView.findViewById(R.id.razaMascota);
             sexoMascota = itemView.findViewById(R.id.sexoMascota);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = itemView.getContext();
+                    Intent intent = new Intent(context, VerMascotaActivity.class);
+                    intent.putExtra("id_mascota", listaMascotas.get(getAdapterPosition()).getId_mascota());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
