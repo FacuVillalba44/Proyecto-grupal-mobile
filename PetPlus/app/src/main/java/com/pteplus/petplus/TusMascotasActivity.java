@@ -38,7 +38,10 @@ public class TusMascotasActivity extends AppCompatActivity {
         DbMascota dbMascota = new DbMascota(TusMascotasActivity.this);
         listaArrayMascotas = new ArrayList<>();
 
-        ListaMascotasAdapter adapter = new ListaMascotasAdapter(dbMascota.verMascota(id_usuario));
+        // Crear un ArrayList de objetos Mascotas a partir del objeto Mascotas devuelto por el método verMascota()
+        listaArrayMascotas.add(dbMascota.verMascota(id_usuario));
+
+        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listaArrayMascotas);
         listaMascotas.setAdapter(adapter);
 
 
