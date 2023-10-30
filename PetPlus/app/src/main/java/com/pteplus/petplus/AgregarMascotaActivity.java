@@ -40,14 +40,10 @@ public class AgregarMascotaActivity extends AppCompatActivity {
         btnCancelar = findViewById(R.id.btnEliminarMascota);
         etNombreMascota = findViewById(R.id.etNombreMascota);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
+        etFechaNacimiento.setFocusable(false);
         etRaza = findViewById(R.id.etRaza);
         etEspecie = findViewById(R.id.etEspecie);
         etSexo = findViewById(R.id.etSexo);
-
-
-        dbMascota = new DbMascota(this);
-
-        dbUsuario = new DbUsuario(this);
 
 
 
@@ -62,20 +58,27 @@ public class AgregarMascotaActivity extends AppCompatActivity {
         btnAgregarMascota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbMascota = new DbMascota(AgregarMascotaActivity.this);
+
+                dbUsuario = new DbUsuario(AgregarMascotaActivity.this);
+
                 String nombre = etNombreMascota.getText().toString();
                 String fecha_nacimiento = etFechaNacimiento.getText().toString();
                 String especie = etEspecie.getText().toString();
                 String raza = etRaza.getText().toString();
                 String sexo = etSexo.getText().toString();
-                int idUsuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
 
-                long agregarMascota = dbMascota.crearMascota(nombre, fecha_nacimiento, especie, raza, sexo, idUsuario);
+                int id_usuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
 
-                if(agregarMascota>0){
+                long id_mascota = dbMascota.crearMascota(nombre, fecha_nacimiento, especie, raza, sexo, id_usuario);
+
+                if(id_mascota>0){
                     Toast.makeText(AgregarMascotaActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AgregarMascotaActivity.this, TusMascotasActivity.class);
-                    intent.putExtra(BaseDeDatos.COLUMN_ID_USUARIO, idUsuario);
+                    intent.putExtra("id_usuario", id_usuario);
+                    intent.putExtra("id_mascota", id_mascota);
                     startActivity(intent);
+                    limpiar();
                 }
                 else{
                     Toast.makeText(AgregarMascotaActivity.this, "Registro Fallido",Toast.LENGTH_SHORT).show();
@@ -122,5 +125,13 @@ public class AgregarMascotaActivity extends AppCompatActivity {
 
     private void setFechaNacimiento(String fecha_seleccionada) {
         etFechaNacimiento.setText(fecha_seleccionada);
+    }
+
+    private void limpiar(){
+        etNombreMascota.setText("");
+        etFechaNacimiento.setText("");
+        etEspecie.setText("");
+        etRaza.setText("");
+        etSexo.setText("");
     }
 }

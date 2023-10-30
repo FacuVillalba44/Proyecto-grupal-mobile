@@ -1,5 +1,7 @@
 package com.pteplus.petplus.entidades;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class Mascotas {
@@ -11,6 +13,7 @@ public class Mascotas {
     private String sexo;
 
     public int getId_mascota() {
+        Log.d("ID_MASCOTA_CLASS", "ID de la mascota: " + id_mascota);
         return id_mascota;
     }
 

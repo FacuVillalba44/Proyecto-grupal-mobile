@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
         int idUsuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
 
 
-
         buttonTusMascotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TusMascotasActivity.class);
+                intent.putExtra("id_usuario", idUsuario);
                 startActivity(intent);
             }
         });
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TusVeterinariasActivity.class);
+                intent.putExtra("id_usuario", idUsuario);
                 startActivity(intent);
             }
         });
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TusRecordatoriosActivity.class);
+                intent.putExtra("id_usuario", idUsuario);
                 startActivity(intent);
             }
         });
@@ -63,14 +65,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AgregarVeterinariaActivity.class);
+                intent.putExtra("id_usuario", idUsuario);
                 startActivity(intent);
             }
         });
 
-        /*TableLayout tableRecordatorios = findViewById(R.id.tableRecordatorios);
 
-        for (Recordatorio recordatorio : listaRecordatorios){
-            TableRow row = new TableRow(this);
-        }*/
     }
 }
