@@ -32,7 +32,23 @@ public class TusMascotasActivity extends AppCompatActivity {
         listaMascotas.setLayoutManager(new LinearLayoutManager(this));
 
 
+<<<<<<< HEAD
         int id_usuario = getIntent().getIntExtra("id_usuario", -1);
+=======
+        int dividerColor = getResources().getColor(R.color.colorDivider);
+        int dividerHeightInPixels = getResources().getDimensionPixelSize(R.dimen.divider_height);
+        DivisorItem divisor = new DivisorItem(dividerColor, dividerHeightInPixels);
+        listaMascotas.addItemDecoration(divisor);
+
+        DbMascota dbMascota = new DbMascota(TusMascotasActivity.this);
+        listaArrayMascotas = new ArrayList<>();
+
+        // Crear un ArrayList de objetos Mascotas a partir del objeto Mascotas devuelto por el método verMascota()
+        listaArrayMascotas.add(dbMascota.verMascota(id_usuario));
+
+        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listaArrayMascotas);
+        listaMascotas.setAdapter(adapter);
+>>>>>>> bf6fbd951cca3f039d032632282573927cc32e6a
 
 
 
