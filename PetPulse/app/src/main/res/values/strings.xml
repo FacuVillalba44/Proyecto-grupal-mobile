@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PetPulse</string>
+    <string name="txt_descr">Logo de la aplicacion </string>
+    <string name="txt_email">Ingrese su e-mail</string>
+    <string name="txt_pass">Ingrese su contraseña</string>
+    <string name="txt_pass2">Confirme su contraseña</string>
+    <string name="txt_nwuser">NUEVO USUARIO</string>
+    <string name="txt_iniciar">INICIAR SESIÓN</string>
+    <string name="txt_rg">Registrarse</string>
+    <string name="btn_login">Iniciar</string>
+    <string name="btn_registrarse">Registrarse</string>
+
 </resources>

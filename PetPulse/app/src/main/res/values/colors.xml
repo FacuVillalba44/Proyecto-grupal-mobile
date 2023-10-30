@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--colors background gradient -->
+    <color name="color_bg_1">#F26419</color>
+    <color name="color_bg_2">#F57614</color>
+    <color name="color_bg_3">#F9900D</color>
+    <!--colors background forms -->
+    <color name="color_form_1">#FFB703</color>
+
 </resources>
