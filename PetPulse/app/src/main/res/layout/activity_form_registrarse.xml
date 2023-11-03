@@ -4,6 +4,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Form_registrarse">
+    tools:context=".Form_registrarse"
+    android:background="@drawable/fondodegradado">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="18dp"
+        android:contentDescription="@string/txt_descr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="537dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bordes_redondeados_white"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <TextView
+            android:id="@+id/tv_form_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="@string/tv_form_nwUser"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/ediTextEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="emailAddress"
+            android:backgroundTint="@color/color_bg_1"
+            android:ems="15"
+            android:hint="@string/txt_hint_email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textAlignment="textStart"
+            android:textColorHint="@color/black"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/ediTextNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:autofillHints="password"
+            android:backgroundTint="@color/color_bg_1"
+            android:ems="15"
+            android:hint="@string/txt_pass"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textAlignment="textStart"
+            android:textColorHint="@color/black"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/ediTextApellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:autofillHints="password"
+            android:backgroundTint="@color/color_bg_1"
+            android:ems="15"
+            android:hint="@string/txt_hint_pass"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textAlignment="textStart"
+            android:textColorHint="@color/black"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/ediTextPassword1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:autofillHints="password"
+            android:backgroundTint="@color/color_bg_1"
+            android:ems="15"
+            android:hint="@string/txt_hint_pass"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textAlignment="textStart"
+            android:textColorHint="@color/black"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/ediTextPassword2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:autofillHints="password"
+            android:backgroundTint="@color/color_bg_1"
+            android:ems="15"
+            android:hint="@string/txt_hint_pass2"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textAlignment="textStart"
+            android:textColorHint="@color/black"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonInisioSesion"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/btn_registrarse"
+            android:gravity="center_horizontal"
+            android:text="@string/btn_login"
+            android:textSize="25sp"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="358dp" />
+
+
+        <Button
+            android:id="@+id/buttonRegistrar"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/btn_cancelar"
+            android:text="@string/btn_registrarse"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="358dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

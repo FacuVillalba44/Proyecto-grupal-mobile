@@ -2,6 +2,7 @@ package com.proyectdevispc.petpulse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -30,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
                 validarCampos(et_email,et_pass);
                 }
         });
+    }
+
+    public void form_registrar (View view){
+        Intent form_registro = new Intent(this, Form_registrarse.class);
+        startActivity(form_registro);
     }
     private boolean validarCampos(EditText et_email, EditText et_pass) {
         String email = et_email.getText().toString().trim();

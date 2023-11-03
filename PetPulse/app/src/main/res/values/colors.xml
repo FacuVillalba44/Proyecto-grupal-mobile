@@ -8,5 +8,7 @@
     <color name="color_bg_3">#F9900D</color>
     <!--colors background forms -->
     <color name="color_form_1">#FFB703</color>
+    <color name="btn_registrarse">#0097FF</color>
+    <color name="btn_cancelar">#FB9A25</color>
 
 </resources>

@@ -2,17 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/fondodegradado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondodegradado"
+    android:onClick="form_registrar"
     tools:context=".MainActivity">
 
     <ImageView
-        android:contentDescription="@string/txt_descr"
         android:id="@+id/imageView"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="48dp"
+        android:contentDescription="@string/txt_descr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +38,9 @@
             android:id="@+id/tv_iniciar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:fontFamily="sans-serif-light"
-            android:text="@string/txt_iniciar"
+            android:gravity="center"
+            android:text="@string/tv_iniciar"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
@@ -51,12 +52,12 @@
             android:autofillHints="emailAddress"
             android:backgroundTint="@color/color_bg_1"
             android:ems="15"
-            android:textColorHint="@color/black"
-            android:textStyle="normal"
-            android:textAlignment="textStart"
-            android:hint="@string/txt_email"
+            android:hint="@string/txt_hint_email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
+            android:textAlignment="textStart"
+            android:textColorHint="@color/black"
+            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -68,12 +69,12 @@
             android:autofillHints="password"
             android:backgroundTint="@color/color_bg_1"
             android:ems="15"
-            android:textColorHint="@color/black"
-            android:textStyle="normal"
-            android:hint="@string/txt_pass"
-            android:textAlignment="textStart"
+            android:hint="@string/txt_hint_pass"
             android:inputType="textPassword"
             android:minHeight="48dp"
+            android:textAlignment="textStart"
+            android:textColorHint="@color/black"
+            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -83,8 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
             android:backgroundTint="@color/color_bg_1"
+            android:gravity="center_horizontal"
             android:text="@string/btn_login"
             android:textSize="25sp"
             tools:layout_editor_absoluteX="163dp"
@@ -95,12 +96,12 @@
             android:id="@+id/tv_registrarse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10sp"
-            android:textSize="30sp"
             android:fontFamily="sans-serif-light"
-            android:textColor="@color/white"
             android:gravity="center"
-            android:text="@string/txt_nwuser" />
+            android:padding="10sp"
+            android:text="@string/tv_nwuser"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/buttonRegistrar"
