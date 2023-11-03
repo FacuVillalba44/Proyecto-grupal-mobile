@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        et_email=findViewById(R.id.et_email);
-        et_pass=findViewById(R.id.et_pass);
-        bt_iniciar=findViewById(R.id.bt_iniciar);
+        et_email=findViewById(R.id.ediTextemail);
+        et_pass=findViewById(R.id.ediTextPassword);
+        bt_iniciar=findViewById(R.id.buttonInisioSesion);
 
         bt_iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Ingrese un e-mail válido", Toast.LENGTH_SHORT).show();
             return false;
         } else {
-            // Los campos están completos y el email es válido
-            Toast.makeText(getApplicationContext(), "Bienvenido a PetPulse", Toast.LENGTH_SHORT).show();
+            // Los campos están completos y el email es válido inicia sesion
+            Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_SHORT).show();
             return true;
         }
     }
