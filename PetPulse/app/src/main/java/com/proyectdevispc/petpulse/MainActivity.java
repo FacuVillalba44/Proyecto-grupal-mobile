@@ -27,29 +27,26 @@ public class MainActivity extends AppCompatActivity {
         bt_iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarEmail(et_email);
-                camposVacios(et_email,et_pass);
-            }
+                validarCampos(et_email,et_pass);
+                }
         });
     }
-    private boolean camposVacios(EditText et_email, EditText et_pass){
-        String val_email = et_email.getText().toString();
-        String val_pass = et_pass.getText().toString();
-        if (!val_email.isEmpty() || !val_pass.isEmpty()) {
-            return true;
-        } else {
-            Toast.makeText(this, "Este campo no puede estar vacio", Toast.LENGTH_SHORT).show();
+    private boolean validarCampos(EditText et_email, EditText et_pass) {
+        String email = et_email.getText().toString().trim();
+        String pass = et_pass.getText().toString().trim();
+
+        if (email.isEmpty() || pass.isEmpty()) {
+            // Mostrar mensaje de error
+            Toast.makeText(getApplicationContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
             return false;
-        }
-    }
-    private boolean validarEmail(EditText et_email) {
-        String val_email = et_email.getText().toString();
-        if (Patterns.EMAIL_ADDRESS.matcher(val_email).matches()) {
-            Toast.makeText(this, "Bienvenido a PetPulse", Toast.LENGTH_SHORT).show();
-            return true;
-        } else {
-            Toast.makeText(this, "Ingrese un e-mail valido", Toast.LENGTH_SHORT).show();
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            // Mostrar mensaje de error
+            Toast.makeText(getApplicationContext(), "Ingrese un e-mail válido", Toast.LENGTH_SHORT).show();
             return false;
+        } else {
+            // Los campos están completos y el email es válido
+            Toast.makeText(getApplicationContext(), "Bienvenido a PetPulse", Toast.LENGTH_SHORT).show();
+            return true;
         }
     }
 }
