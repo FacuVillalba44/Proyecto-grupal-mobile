@@ -2,17 +2,22 @@
     <string name="app_name">PetPulse</string>
 
     <string name="tv_nwuser">NUEVO USUARIO</string>
+
     <string name="tv_iniciar">INICIAR SESIÓN</string>
+    <string name="tv_form_nwUser">Registra tu cuenta</string>
+
     <string name="txt_descr">Logo de la aplicacion </string>
     <string name="txt_hint_email">Ingrese su e-mail</string>
     <string name="txt_hint_pass">Ingrese su contraseña</string>
     <string name="txt_hint_pass2">Confirme su contraseña</string>
+    <string name="txt_hint_nombre">Ingrese su Nombre</string>
+    <string name="txt_hint_apellido">Ingrese su Apellido</string>
 
+    <string name="txt_btn_login">Iniciar</string>
     <string name="txt_btn_rg">Registrarse</string>
+    <string name="txt_btn_registrarse">Crear cuenta</string>
+    <string name="txt_btn_cancelar">Cancelar</string>
 
-    <string name="tv_form_nwUser">Registra tu cuenta</string>
-    <string name="btn_login">Iniciar</string>
-    <string name="btn_registrarse">Registrarse</string>
 
 
 
