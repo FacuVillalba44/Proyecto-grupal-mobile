@@ -10,5 +10,7 @@
     <color name="color_form_1">#FFB703</color>
     <color name="btn_registrarse">#0097FF</color>
     <color name="btn_cancelar">#FB9A25</color>
+    <color name="btn_green">#20E2D7</color>
+
 
 </resources>

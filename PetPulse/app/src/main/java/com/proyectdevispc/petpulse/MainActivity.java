@@ -10,10 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.regex.Pattern;
-
 public class MainActivity extends AppCompatActivity {
     EditText et_email, et_pass;
     Button bt_iniciar;
@@ -28,14 +24,21 @@ public class MainActivity extends AppCompatActivity {
         bt_iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarCampos(et_email,et_pass);
+                boolean validacion = validarCampos(et_email,et_pass);
+                //si la validación es correcta, inicia.
+                 if (validacion){
+                 Iniciar();
                 }
+            }
         });
     }
-
     public void form_registrar (View view){
         Intent form_registro = new Intent(this, Form_registrarse.class);
         startActivity(form_registro);
+    }
+    public void Iniciar(){
+        Intent inicio = new Intent(this,   Inicio.class);
+        startActivity(inicio);
     }
     private boolean validarCampos(EditText et_email, EditText et_pass) {
         String email = et_email.getText().toString().trim();

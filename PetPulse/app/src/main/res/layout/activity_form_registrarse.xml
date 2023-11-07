@@ -53,7 +53,8 @@
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textAlignment="textStart"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/color_bg_3"
+            android:textColor="@color/black"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -63,14 +64,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:autofillHints="password"
+            android:autofillHints="name"
             android:backgroundTint="@color/color_bg_1"
             android:ems="15"
             android:hint="@string/txt_hint_nombre"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="textStart"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/color_bg_3"
+            android:textColor="@color/black"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -79,14 +81,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:autofillHints="password"
+            android:autofillHints="name"
             android:backgroundTint="@color/color_bg_1"
             android:ems="15"
             android:hint="@string/txt_hint_apellido"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="textStart"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/color_bg_3"
+            android:textColor="@color/black"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -103,7 +106,8 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="textStart"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/color_bg_3"
+            android:textColor="@color/black"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -120,10 +124,12 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="textStart"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/color_bg_3"
+            android:textColor="@color/black"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
 
         <Button
             android:id="@+id/buttonInisioSesion"
@@ -133,12 +139,12 @@
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/btn_registrarse"
             android:gravity="center_horizontal"
+            android:onClick="btn_registrar"
             android:text="@string/txt_btn_registrarse"
             android:textColor="@color/white"
             android:textSize="25sp"
             tools:layout_editor_absoluteX="163dp"
             tools:layout_editor_absoluteY="358dp" />
-
 
         <Button
             android:id="@+id/buttonRegistrar"
