@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DevelopFerJuarez</string>
+    <string name="title_petPlus">Pet Plus</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="btnLogin">Loggin</string>
 </resources>
