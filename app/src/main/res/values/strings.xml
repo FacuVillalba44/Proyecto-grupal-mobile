@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">DevelopFerJuarez</string>
     <string name="title_petPlus">Pet Plus</string>
-    <string name="Nombre">Nombre</string>
-    <string name="Contraseña">Contraseña</string>
     <string name="btnLogin">Loggin</string>
+    <string name="txtNombre">Nombre</string>
+    <string name="txtContraseña">Contraseña</string>
+    <string name="ptxtNombre" />
+    <string name="ptxtContrasena" />
+    <string name="tvMenu">Menu</string>
+    <string name="btnMascotas">Ver Mascotas</string>
+    <string name="btnVeterinaria">Ver Veterinarias</string>
+    <string name="btnAgregarMascota">Agregar Mascotas</string>
+    <string name="btnAgregarVeterinaria">Agregar Veterinaria</string>
+    <string name="btnAgregarNota">Notas</string>
 </resources>
