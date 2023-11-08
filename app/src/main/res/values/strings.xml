@@ -12,4 +12,10 @@
     <string name="btnAgregarMascota">Agregar Mascotas</string>
     <string name="btnAgregarVeterinaria">Agregar Veterinaria</string>
     <string name="btnAgregarNota">Notas</string>
+    <string name="tvAgregarVeterinaria">Agregar Veterinaria</string>
+    <string name="txtNombreVeterinaria">Nombre</string>
+    <string name="ptNombre" />
+    <string name="tvDireccion">Direccion</string>
+    <string name="ptDireccion" />
+    <string name="btnAgregarVeterinarias">+</string>
 </resources>
