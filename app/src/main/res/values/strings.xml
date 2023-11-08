@@ -18,4 +18,11 @@
     <string name="tvDireccion">Direccion</string>
     <string name="ptDireccion" />
     <string name="btnAgregarVeterinarias">+</string>
+    <string name="txtAgregarMascotas">Agregar Mastcotas</string>
+    <string name="txtAgregarMascota">Agregar Mascotas</string>
+    <string name="txtNombreMascotas">Nombre</string>
+    <string name="pt_nombreMascota" />
+    <string name="txtRaza">Raza</string>
+    <string name="ptNombre_raza" />
+    <string name="btnAgregar_mascota">+</string>
 </resources>
