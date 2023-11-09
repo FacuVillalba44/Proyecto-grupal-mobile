@@ -2,6 +2,8 @@
     <string name="app_name">PetPulse</string>
 
     <string name="tv_nwuser">NUEVO USUARIO</string>
+    <string name="tv_inicio">Inicio</string>
+    <string name="tv_bienvenida">Bienvenido a Pet Pulse</string>
 
     <string name="tv_iniciar">INICIAR SESIÓN</string>
     <string name="tv_form_nwUser">Registra tu cuenta</string>
@@ -17,6 +19,11 @@
     <string name="txt_btn_rg">Registrarse</string>
     <string name="txt_btn_registrarse">Crear cuenta</string>
     <string name="txt_btn_cancelar">Cancelar</string>
+    <string name="txt_btn_agregar_vet">Agregar veterinaria</string>
+    <string name="txt_btn_agregar_masc">Agregar mascota</string>
+    <string name="txt_btn_masc">Mascotas</string>
+    <string name="txt_btn_vete">Veterinarias</string>
+    <string name="txt_btn_agregar_rec">Añadir recordatorio</string>
 
 
 </resources>
