@@ -94,9 +94,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 COLUMN_FECHA_NACIMIENTO + " TEXT NOT NULL, " +
                 COLUMN_ESPECIE + " TEXT NOT NULL, " +
                 COLUMN_RAZA + " TEXT NOT NULL, " +
-                //COLUMN_PESO + " TEXT, " + //tengo que eliminar esta columna
                 COLUMN_SEXO + " TEXT, " +
-                //COLUMN_TAMAÑO + " TEXT, " +   // Hay que eliminar esta columna
                 COLUMN_ID_USUARIO + " INTEGER, " +
                 "FOREIGN KEY(" + COLUMN_ID_USUARIO + ") REFERENCES " + TABLE_USUARIO + "(" + COLUMN_ID_USUARIO + ")" +
                 ")";

@@ -2,10 +2,8 @@ package com.pteplus.petplus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.widget.DatePicker;
@@ -25,12 +23,9 @@ import com.pteplus.petplus.bd.DbUsuario;
 public class AgregarMascotaActivity extends AppCompatActivity {
     private Button btnAgregarMascota, btnCancelar;
 
-    private EditText etNombreMascota, etRaza, etEspecie;
+    private EditText etNombreMascota, etRaza, etEspecie, etSexo;
     private EditText etFechaNacimiento;
 
-    private Spinner spinner1;
-
-    private String[] opciones = {"Macho", "Hembra"};
 
     DbMascota dbMascota;
     DbUsuario dbUsuario;
@@ -41,22 +36,14 @@ public class AgregarMascotaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_mascota);
 
-        btnAgregarMascota = findViewById(R.id.btnAgregarMascota);
-        btnCancelar = findViewById(R.id.btnCancelar);
+        btnAgregarMascota = findViewById(R.id.btnEditarMascota);
+        btnCancelar = findViewById(R.id.btnEliminarMascota);
         etNombreMascota = findViewById(R.id.etNombreMascota);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
+        etFechaNacimiento.setFocusable(false);
         etRaza = findViewById(R.id.etRaza);
         etEspecie = findViewById(R.id.etEspecie);
-        spinner1 = findViewById(R.id.spinner1);
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,opciones);
-
-        spinner1.setAdapter(adapter);
-
-        dbMascota = new DbMascota(this);
-
-        dbUsuario = new DbUsuario(this);
+        etSexo = findViewById(R.id.etSexo);
 
 
 
@@ -71,23 +58,27 @@ public class AgregarMascotaActivity extends AppCompatActivity {
         btnAgregarMascota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbMascota = new DbMascota(AgregarMascotaActivity.this);
+
+                dbUsuario = new DbUsuario(AgregarMascotaActivity.this);
+
                 String nombre = etNombreMascota.getText().toString();
                 String fecha_nacimiento = etFechaNacimiento.getText().toString();
                 String especie = etEspecie.getText().toString();
                 String raza = etRaza.getText().toString();
-                String sexo = spinner1.getSelectedItem().toString();
-                int idUsuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
+                String sexo = etSexo.getText().toString();
 
+                int id_usuario = getIntent().getIntExtra(BaseDeDatos.COLUMN_ID_USUARIO, -1);
 
+                long id_mascota = dbMascota.crearMascota(nombre, fecha_nacimiento, especie, raza, sexo, id_usuario);
 
-
-                long agregarMascota = dbMascota.crearMascota(nombre, fecha_nacimiento, especie, raza, sexo, idUsuario);
-
-                if(agregarMascota>0){
+                if(id_mascota>0){
                     Toast.makeText(AgregarMascotaActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AgregarMascotaActivity.this, TusMascotasActivity.class);
-                    intent.putExtra(BaseDeDatos.COLUMN_ID_USUARIO, idUsuario);
+                    intent.putExtra("id_usuario", id_usuario);
+                    intent.putExtra("id_mascota", id_mascota);
                     startActivity(intent);
+                    limpiar();
                 }
                 else{
                     Toast.makeText(AgregarMascotaActivity.this, "Registro Fallido",Toast.LENGTH_SHORT).show();
@@ -134,5 +125,13 @@ public class AgregarMascotaActivity extends AppCompatActivity {
 
     private void setFechaNacimiento(String fecha_seleccionada) {
         etFechaNacimiento.setText(fecha_seleccionada);
+    }
+
+    private void limpiar(){
+        etNombreMascota.setText("");
+        etFechaNacimiento.setText("");
+        etEspecie.setText("");
+        etRaza.setText("");
+        etSexo.setText("");
     }
 }
