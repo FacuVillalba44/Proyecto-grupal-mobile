@@ -33,10 +33,14 @@ android {
 
 dependencies {
 
+    //noinspection GradleCompatible
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation("com.android.support:support-annotations:28.0.0")
+    implementation("androidx.annotation:annotation:1.7.0")
+    implementation("com.android.support:support-v4:28.0.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("com.android.support:support-v13:28.0.0")
+  
 }

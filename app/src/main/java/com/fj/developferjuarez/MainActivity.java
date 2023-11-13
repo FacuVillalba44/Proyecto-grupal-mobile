@@ -16,9 +16,8 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = veterinaria.getWritableDatabase();
         if(db!=null) {
             for(int i=1; i<5; i++) {
-                int codigo = i;
                 String nombre = "Usuario" + i;
-                db.execSQL("INSERT INTO veterinaria (codigo, nombre, direccion) " + "VALUES (" + codigo + ", '"+ nombre +"', '"+ direccion + "')");
+                db.execSQL("INSERT INTO veterinaria (codigo, nombre, direccion) " + "VALUES (" + i + ", '"+ nombre +"', '"+ direccion + "')");
             }
             db.close();
         }
