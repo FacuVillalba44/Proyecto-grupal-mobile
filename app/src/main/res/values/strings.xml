@@ -25,4 +25,6 @@
     <string name="txtRaza">Raza</string>
     <string name="ptNombre_raza" />
     <string name="btnAgregar_mascota">+</string>
+    <string name="btnVolver"><![CDATA[<<]]></string>
+    <string name="btnVolverVeter"><![CDATA[<<]]></string>
 </resources>
