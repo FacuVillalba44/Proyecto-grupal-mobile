@@ -28,4 +28,5 @@
     <string name="btnVolver"><![CDATA[<<]]></string>
     <string name="btnVolverVeter"><![CDATA[<<]]></string>
     <string name="btnMostrarListado">Mostrar Listado</string>
+    <string name="btnSalir">Salir</string>
 </resources>
