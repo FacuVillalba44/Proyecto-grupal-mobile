@@ -70,11 +70,10 @@ public class activity_mascota extends AppCompatActivity {
             }
         }
 
-        btnVolverveter.setOnClickListener(new View.OnClickListener() {
-            Intent intent = new Intent(activity_mascota.this, activity_mascota.class );
-            startActivity(intent);
-
-        });
+    private void volverAMenu() {
+        Intent intent = new Intent(this, ActivityMenu.class);
+        startActivity(intent);
+    }
 
     }
 }
