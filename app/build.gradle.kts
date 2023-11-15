@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.fj.developferjuarez"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.fj.developferjuarez"
