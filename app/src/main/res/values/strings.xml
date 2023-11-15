@@ -27,4 +27,5 @@
     <string name="btnAgregar_mascota">+</string>
     <string name="btnVolver"><![CDATA[<<]]></string>
     <string name="btnVolverVeter"><![CDATA[<<]]></string>
+    <string name="btnMostrarListado">Mostrar Listado</string>
 </resources>
