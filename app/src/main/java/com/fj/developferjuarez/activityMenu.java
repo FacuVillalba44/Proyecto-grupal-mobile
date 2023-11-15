@@ -9,50 +9,59 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 // ...
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
-public class LoginActivity extends AppCompatActivity {
+// ...
+
+public class UsuarioDataSource {
 
     // ...
 
-    private void iniciarSesion() {
-        String nombreUsuario = etNombreUsuario.getText().toString();
-        String contrasena = etContrasena.getText().toString();
+    public long crearUsuario(String nombre, String contrasena) {
+        // Generar una nueva sal
+        String salt = BCrypt.withDefaults().generateSalt(10);
 
-        // Validar que se ingresen datos antes de iniciar sesión
-        if (!nombreUsuario.isEmpty() && !contrasena.isEmpty()) {
-            // Obtener la información del usuario desde la base de datos
-            Usuario usuario = usuarioDataSource.obtenerUsuarioPorNombre(nombreUsuario);
+        // Hash y sal de la contraseña
+        String contrasenaHash = BCrypt.withDefaults().hashToString(10, (nombre + contrasena).toCharArray());
 
-            if (usuario != null) {
-                // Verificar la contraseña utilizando la función de hash y sal
-                if (verificarContrasena(contrasena, usuario.getContrasena())) {
-                    // Iniciar sesión exitosa
-                    Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+        // Guardar el usuario en la base de datos
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_NOMBRE, nombre);
+        values.put(DatabaseHelper.COLUMN_CONTRASENA, contrasenaHash);
+        values.put(DatabaseHelper.COLUMN_SAL, salt);
 
-                    // Aquí puedes abrir la actividad principal de tu aplicación
-                    // por ejemplo, ActivityMenu.class
-                    Intent intent = new Intent(this, ActivityMenu.class);
-                    startActivity(intent);
-                    finish();  // Cierra la actividad de inicio de sesión
-                } else {
-                    // Credenciales incorrectas
-                    Toast.makeText(this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                // Usuario no encontrado
-                Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            // Mostrar un mensaje indicando que se deben ingresar ambos campos
-            Toast.makeText(this, "Por favor, ingrese nombre de usuario y contraseña", Toast.LENGTH_SHORT).show();
-        }
+        return database.insert(DatabaseHelper.TABLE_USUARIOS, null, values);
     }
 
-    private boolean verificarContrasena(String contrasena, String contrasenaAlmacenada) {
-        // Utilizar la biblioteca BCrypt para verificar la contraseña
-        BCrypt.Result result = BCrypt.verifyer().verify(contrasena.toCharArray(), contrasenaAlmacenada);
+    public Usuario obtenerUsuarioPorNombre(String nombre) {
+        // Obtener el usuario desde la base de datos
+        Cursor cursor = database.query(DatabaseHelper.TABLE_USUARIOS,
+                allColumns, DatabaseHelper.COLUMN_NOMBRE + " = ?", new String[]{nombre},
+                null, null, null);
 
-        return result.verified;
+        if (cursor != null) {
+            try {
+                if (cursor.moveToFirst()) {
+                    return cursorToUsuario(cursor);
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+
+        return null;
+    }
+
+    private Usuario cursorToUsuario(Cursor cursor) {
+        // Convertir el cursor a un objeto Usuario
+        Usuario usuario = new Usuario();
+        usuario.setId(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID)));
+        usuario.setNombre(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_NOMBRE)));
+        usuario.setContrasena(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_CONTRASENA)));
+
+        // La sal se puede recuperar de la base de datos si es necesario
+
+        return usuario;
     }
 
     // ...
