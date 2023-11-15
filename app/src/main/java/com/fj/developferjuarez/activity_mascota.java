@@ -17,12 +17,12 @@ public class activity_mascota extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mascota);
-        Button btnVolverveter = findViewById(R.id:btnVolverveter);
+        Button btnVolverveter = findViewById(R.id:button6);
         dataSource = new MascotaDataSource(this);
         dataSource.open();
         editTextNombre = findViewById(R.id.editTextNombre);
         getEditTextRaza = findViewById(R.id.editTextRaza);
-        button btnGuardar = findViewById(R.id.btnGuardar);
+        button btnGuardar = findViewById(R.id.btnGuardarMascota);
 
         btnGuardar.setOnClickListener(new view.OnClickListener()){
             public void onclick(View v) {
