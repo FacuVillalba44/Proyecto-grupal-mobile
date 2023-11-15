@@ -42,6 +42,7 @@ dependencies {
     implementation("com.android.support:support-v4:28.0.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.android.support:support-v13:28.0.0")
-    implementation 'at.favre.lib:bcrypt:0.11.0'
+    implementation ("at.favre.lib:bcrypt:0.11.0")
+
 
 }

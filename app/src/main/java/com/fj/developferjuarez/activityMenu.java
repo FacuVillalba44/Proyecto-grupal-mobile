@@ -6,6 +6,9 @@ import android.os.Bundle;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 // ...
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
+// ...
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -53,13 +56,4 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // ...
-}
-
-public class activityMenu extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-    }
 }
